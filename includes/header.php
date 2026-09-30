@@ -1,0 +1,4 @@
+<?php require_once __DIR__ . '/auth.php'; $user = current_user(); $pageTitle = $pageTitle ?? 'PC-Builder'; ?>
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title><?= e($pageTitle) ?> · PC-Builder</title><link rel="stylesheet" href="assets/css/style.css"></head>
+<body><header class="topbar"><a class="brand" href="?page=configurator"><span>◈</span> PC-Builder</a><nav><a href="?page=configurator">Конфигуратор</a><?php if ($user): ?><a href="?page=builds">Мои сборки</a><a href="?page=cabinet">Кабинет</a><span class="plan-pill"><?= e(plan_label($user['plan'])) ?></span><a href="?page=logout">Выйти</a><?php else: ?><a href="?page=login">Войти</a><a class="nav-cta" href="?page=register">Регистрация</a><?php endif; ?></nav></header><main class="container">
